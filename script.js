@@ -1,5 +1,6 @@
 const body = document.body;
 const intro = document.querySelector('.intro');
+const introVideo = document.querySelector('.intro__video');
 const enterLink = document.querySelector('[data-enter]');
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('.menu-button');
@@ -22,6 +23,18 @@ const siteSoundLabel = document.querySelector('[data-site-sound-label]');
 function closeMenu() {
   navigation.classList.remove('is-open');
   menuButton.setAttribute('aria-expanded', 'false');
+}
+
+if (intro && introVideo) {
+  function revealIntroVideo() {
+    if (introVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      intro.classList.add('is-video-ready');
+    }
+  }
+
+  introVideo.addEventListener('loadeddata', revealIntroVideo, { once: true });
+  introVideo.addEventListener('canplay', revealIntroVideo, { once: true });
+  revealIntroVideo();
 }
 
 function updateSiteSoundState(isPlaying) {
