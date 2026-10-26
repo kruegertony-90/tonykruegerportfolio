@@ -157,9 +157,12 @@
             <span>Project / Showcase</span>
           </div>
           <figure class="editorial__film">
-            <video class="editorial__video" autoplay muted loop playsinline preload="metadata" poster="assets/about-photo.jpg" data-editorial-video tabindex="0" aria-label="Click to pause Red as Love">
-              <source src="assets/editorial-video.mp4" type="video/mp4" />
-            </video>
+            <div class="editorial__media">
+              <img class="editorial__loading" src="assets/loadingscreen.webp" alt="" aria-hidden="true" loading="lazy" />
+              <video class="editorial__video" autoplay muted loop playsinline preload="metadata" data-editorial-video tabindex="0" aria-label="Click to pause Red as Love">
+                <source src="assets/editorial-video.mp4" type="video/mp4" />
+              </video>
+            </div>
             <figcaption>
               <span>Red as Love — work showcase</span>
               <span data-editorial-video-label>Click video to pause</span>

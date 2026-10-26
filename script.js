@@ -14,11 +14,31 @@ const projectDialog = document.querySelector('.project-dialog');
 const projectDialogContent = document.querySelector('.project-dialog__content');
 const closeProjectDialogButton = document.querySelector('.project-dialog__close');
 const editorialVideo = document.querySelector('.editorial__video');
+const editorialFilm = document.querySelector('.editorial__film');
 const editorialVideoButton = document.querySelector('[data-editorial-video]');
 const editorialVideoLabel = document.querySelector('[data-editorial-video-label]');
 const siteSoundtrack = document.querySelector('#site-soundtrack');
 const siteSoundButton = document.querySelector('[data-site-sound]');
 const siteSoundLabel = document.querySelector('[data-site-sound-label]');
+
+if (editorialVideo && editorialFilm) {
+  const editorialLoadingTimer = window.setTimeout(() => {
+    if (editorialVideo.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
+      editorialFilm.classList.add('is-video-loading');
+    }
+  }, 550);
+
+  function revealEditorialVideo() {
+    if (editorialVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      window.clearTimeout(editorialLoadingTimer);
+      editorialFilm.classList.remove('is-video-loading');
+    }
+  }
+
+  editorialVideo.addEventListener('loadeddata', revealEditorialVideo, { once: true });
+  editorialVideo.addEventListener('canplay', revealEditorialVideo, { once: true });
+  revealEditorialVideo();
+}
 
 function closeMenu() {
   navigation.classList.remove('is-open');
