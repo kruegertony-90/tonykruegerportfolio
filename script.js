@@ -26,8 +26,16 @@ function closeMenu() {
 }
 
 if (intro && introVideo) {
+  const loadingScreenTimer = window.setTimeout(() => {
+    if (introVideo.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
+      intro.classList.add('is-video-loading');
+    }
+  }, 550);
+
   function revealIntroVideo() {
     if (introVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      window.clearTimeout(loadingScreenTimer);
+      intro.classList.remove('is-video-loading');
       intro.classList.add('is-video-ready');
     }
   }
