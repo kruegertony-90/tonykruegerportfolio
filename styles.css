@@ -48,7 +48,7 @@ body.has-intro .site-sound-toggle { visibility: hidden; opacity: 0; pointer-even
 .main-nav a.is-active { color: var(--white); background: var(--black); }
 .menu-button { display: none; }
 
-.hero { position: relative; display: grid; width: 100%; min-height: max(34rem, calc(100svh - clamp(5rem, 7.9vw, 9.5rem))); overflow: hidden; color: var(--white); background: var(--black); border-bottom: var(--line); }
+.hero { position: relative; display: grid; width: 100%; min-height: max(34rem, calc(100svh - clamp(5rem, 7.9vw, 9.5rem))); overflow: hidden; color: var(--white); background: var(--black) url("assets/loadingscreen.webp") center / cover no-repeat; border-bottom: var(--line); }
 .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero__veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(0 0 0 / .78), rgb(0 0 0 / .12) 74%); }
 .hero__caption { position: relative; display: flex; align-items: baseline; gap: 1.1rem; align-self: end; margin: 0 0 clamp(1.5rem, 4vw, 4rem) var(--pad); }

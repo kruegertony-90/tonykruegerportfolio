@@ -1,6 +1,8 @@
 const body = document.body;
 const intro = document.querySelector('.intro');
 const introVideo = document.querySelector('.intro__video');
+const heroVideo = document.querySelector('[data-hero-video]');
+const heroVideoSource = heroVideo?.querySelector('source[data-src]');
 const enterLink = document.querySelector('[data-enter]');
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('.menu-button');
@@ -15,11 +17,23 @@ const projectDialogContent = document.querySelector('.project-dialog__content');
 const closeProjectDialogButton = document.querySelector('.project-dialog__close');
 const editorialVideo = document.querySelector('.editorial__video');
 const editorialFilm = document.querySelector('.editorial__film');
+const editorialVideoSource = editorialVideo?.querySelector('source[data-src]');
 const editorialVideoButton = document.querySelector('[data-editorial-video]');
 const editorialVideoLabel = document.querySelector('[data-editorial-video-label]');
 const siteSoundtrack = document.querySelector('#site-soundtrack');
 const siteSoundButton = document.querySelector('[data-site-sound]');
 const siteSoundLabel = document.querySelector('[data-site-sound-label]');
+
+function loadDeferredVideo(video, source) {
+  if (!video || !source || source.hasAttribute('src')) return;
+  source.src = source.dataset.src;
+  video.load();
+}
+
+function playDeferredVideo(video, source) {
+  loadDeferredVideo(video, source);
+  video?.play().catch(() => {});
+}
 
 if (editorialVideo && editorialFilm) {
   const editorialLoadingTimer = window.setTimeout(() => {
@@ -38,6 +52,17 @@ if (editorialVideo && editorialFilm) {
   editorialVideo.addEventListener('loadeddata', revealEditorialVideo, { once: true });
   editorialVideo.addEventListener('canplay', revealEditorialVideo, { once: true });
   revealEditorialVideo();
+
+  if ('IntersectionObserver' in window) {
+    const editorialVideoObserver = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      playDeferredVideo(editorialVideo, editorialVideoSource);
+      editorialVideoObserver.disconnect();
+    }, { rootMargin: '500px 0px' });
+    editorialVideoObserver.observe(editorialFilm);
+  } else {
+    playDeferredVideo(editorialVideo, editorialVideoSource);
+  }
 }
 
 function closeMenu() {
@@ -134,6 +159,7 @@ allScrollLinks.forEach((link) => {
 
 enterLink.addEventListener('click', (event) => {
   event.preventDefault();
+  playDeferredVideo(heroVideo, heroVideoSource);
   body.classList.remove('has-intro');
   intro.classList.add('is-leaving');
   window.setTimeout(() => intro.remove(), 720);
@@ -169,6 +195,7 @@ if (editorialVideo && editorialVideoButton && editorialVideoLabel) {
 
   editorialVideoButton.addEventListener('click', () => {
     if (editorialVideo.paused) {
+      loadDeferredVideo(editorialVideo, editorialVideoSource);
       editorialVideo.play();
     } else {
       editorialVideo.pause();

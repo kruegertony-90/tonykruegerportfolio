@@ -16,12 +16,12 @@
     <meta name="twitter:description" content="2026 Portfolio" />
     <meta name="twitter:image" content="https://kruegertony-90.github.io/tonykruegerportfolio/assets/social-preview.png" />
     <title>Tony Krueger - Portfolio</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=2" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body class="has-intro">
-    <audio id="site-soundtrack" loop preload="metadata">
+    <audio id="site-soundtrack" loop preload="none">
       <source src="assets/could-be-us.mp3" type="audio/mpeg" />
     </audio>
     <button class="site-sound-toggle" type="button" data-site-sound aria-pressed="false">
@@ -31,7 +31,7 @@
     <section class="intro" aria-label="Ingresso al portfolio">
       <img class="intro__loading" src="assets/loadingscreen.webp" alt="" aria-hidden="true" fetchpriority="high" />
       <video class="intro__video" autoplay muted loop playsinline preload="auto">
-        <source src="assets/flagship-video.mp4" type="video/mp4" />
+        <source src="assets/flagship-video.mp4?v=2" type="video/mp4" />
       </video>
       <a class="intro__enter" href="#home" data-enter>Enter</a>
     </section>
@@ -60,8 +60,8 @@
 
     <main id="main">
       <section class="hero" id="home" aria-label="Video di presentazione">
-        <video class="hero__video" autoplay muted loop playsinline preload="metadata">
-          <source src="assets/flagship-video.mp4" type="video/mp4" />
+        <video class="hero__video" muted loop playsinline preload="none" data-hero-video aria-hidden="true">
+          <source data-src="assets/flagship-video.mp4?v=2" type="video/mp4" />
         </video>
         <div class="hero__veil"></div>
         <div class="hero__caption">
@@ -80,7 +80,7 @@
               <p class="resume__role">Visual identity &amp;<br />art direction</p>
             </div>
             <figure class="resume__photo">
-              <img src="assets/about-photo.jpg" alt="Ritratto in bianco e nero del creativo" />
+              <img src="assets/about-photo.jpg" alt="Ritratto in bianco e nero del creativo" loading="lazy" decoding="async" />
               <figcaption>Self / 2026</figcaption>
             </figure>
           </header>
@@ -159,8 +159,8 @@
           <figure class="editorial__film">
             <div class="editorial__media">
               <img class="editorial__loading" src="assets/loadingscreen.webp" alt="" aria-hidden="true" loading="lazy" />
-              <video class="editorial__video" autoplay muted loop playsinline preload="metadata" data-editorial-video tabindex="0" aria-label="Click to pause Red as Love">
-                <source src="assets/editorial-video.mp4" type="video/mp4" />
+              <video class="editorial__video" muted loop playsinline preload="none" data-editorial-video tabindex="0" aria-label="Click to pause Red as Love">
+                <source data-src="assets/editorial-video.mp4?v=2" type="video/mp4" />
               </video>
             </div>
             <figcaption>
@@ -227,23 +227,23 @@
 
         <div class="poster-grid">
           <button class="poster-card poster-card--wide reveal" type="button" data-poster="assets/poster-tmk-3.png" data-title="True Monsters Klub — 01">
-            <img src="assets/poster-tmk-3.png" alt="Poster True Monsters Klub, versione uno" />
+            <img src="assets/poster-tmk-3.png" alt="Poster True Monsters Klub, versione uno" loading="lazy" decoding="async" />
             <span>View poster</span>
           </button>
           <button class="poster-card poster-card--wide reveal" type="button" data-poster="assets/poster-tmk-2.png" data-title="True Monsters Klub — 02">
-            <img src="assets/poster-tmk-2.png" alt="Poster True Monsters Klub, versione due" />
+            <img src="assets/poster-tmk-2.png" alt="Poster True Monsters Klub, versione due" loading="lazy" decoding="async" />
             <span>View poster</span>
           </button>
           <button class="poster-card poster-card--center reveal" type="button" data-poster="assets/poster-calcio.png" data-title="Calcio">
-            <img src="assets/poster-calcio.png" alt="Poster Calcio" />
+            <img src="assets/poster-calcio.png" alt="Poster Calcio" loading="lazy" decoding="async" />
             <span>View poster</span>
           </button>
           <button class="poster-card poster-card--wide reveal" type="button" data-poster="assets/poster-krueger.png" data-title="Krueger Night">
-            <img src="assets/poster-krueger.png" alt="Poster Krueger Night" />
+            <img src="assets/poster-krueger.png" alt="Poster Krueger Night" loading="lazy" decoding="async" />
             <span>View poster</span>
           </button>
           <button class="poster-card poster-card--wide reveal" type="button" data-poster="assets/poster-strega.webp" data-title="Strega">
-            <img src="assets/poster-strega.webp" alt="Poster Strega" />
+            <img src="assets/poster-strega.webp" alt="Poster Strega" loading="lazy" decoding="async" />
             <span>View poster</span>
           </button>
         </div>
@@ -264,19 +264,19 @@
         </div>
 
         <figure class="branding__banner reveal">
-          <img src="assets/branding-banner.png" alt="Dettaglio fotografico del progetto branding" />
+          <img src="assets/branding-banner.jpg?v=2" alt="Dettaglio fotografico del progetto branding" loading="lazy" decoding="async" />
           <figcaption>Riviera Pirates — details</figcaption>
         </figure>
 
         <div class="branding__marks">
-          <figure class="mark-card mark-card--black reveal"><img src="assets/branding-white.png" alt="Logo Riviera Pirates bianco" /><figcaption>Mark / negative</figcaption></figure>
-          <figure class="mark-card reveal"><img src="assets/branding-black.png" alt="Logo Riviera Pirates nero" /><figcaption>Mark / positive</figcaption></figure>
+          <figure class="mark-card mark-card--black reveal"><img src="assets/branding-white.png" alt="Logo Riviera Pirates bianco" loading="lazy" decoding="async" /><figcaption>Mark / negative</figcaption></figure>
+          <figure class="mark-card reveal"><img src="assets/branding-black.png" alt="Logo Riviera Pirates nero" loading="lazy" decoding="async" /><figcaption>Mark / positive</figcaption></figure>
         </div>
 
         <div class="riviera-grid">
-          <figure class="riviera-grid__wide reveal"><img src="assets/riviera-wide.webp" alt="Riviera Pirates in formato orizzontale" /></figure>
-          <figure class="reveal"><img src="assets/riviera-left.webp" alt="Riviera Pirates, immagine verticale uno" /></figure>
-          <figure class="reveal"><img src="assets/riviera-right.webp" alt="Riviera Pirates, immagine verticale due" /></figure>
+          <figure class="riviera-grid__wide reveal"><img src="assets/riviera-wide.webp" alt="Riviera Pirates in formato orizzontale" loading="lazy" decoding="async" /></figure>
+          <figure class="reveal"><img src="assets/riviera-left.webp" alt="Riviera Pirates, immagine verticale uno" loading="lazy" decoding="async" /></figure>
+          <figure class="reveal"><img src="assets/riviera-right.webp" alt="Riviera Pirates, immagine verticale due" loading="lazy" decoding="async" /></figure>
         </div>
       </section>
 
@@ -304,6 +304,6 @@
       <div class="project-dialog__content"></div>
     </dialog>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
   </body>
 </html>
